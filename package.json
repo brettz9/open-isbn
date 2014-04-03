@@ -1,0 +1,17 @@
+{
+    "name": "open-isbn",
+    "title": "Open ISBN",
+    "id": "jid0-AUMeALWAI9Z08xdCmXfcfeySIjk",
+    "description": "Lets one highlight text or a link containing an ISBN and visit the ISBN at Amazon.com.",
+    "author": "Brett Zamir",
+    "contributors": [],
+    "license": "MIT",
+    "version": "0.1.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/brettz9/open-isbn.git"
+    },
+   "keywords": [
+        "ISBN"
+    ]
+}
