@@ -9,6 +9,9 @@ and visit the ISBN at [Amazon.com](http://www.amazon.com/).
 The context menu options only appear when right-clicking qualifying ISBN
 links or selections, so it otherwise should not clutter the context menu.
 
+Comes with two options, one to open in the same tab and another to open
+in a different tab. Either can be disabled (thus also avoiding a submenu).
+
 ## To-dos
 
 1. Allow specifying one's own URLs with substitute patterns (and with
