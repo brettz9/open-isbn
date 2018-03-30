@@ -1,0 +1,31 @@
+{
+    "extensionName": {
+      "message": "Open ISBN"
+    },
+    "extensionShortName": {
+      "message": "ISBN"
+    },
+    "extensionDescription": {
+      "message": "Lets one highlight text or a link containing an ISBN and visit the ISBN at Amazon.com."
+    },
+
+    "Open_ISBN_at_Amazon": {
+        "message": "Open ISBN at Amazon"
+    },
+    "Open_ISBN_at_Amazon_new_tab": {
+        "message": "Open ISBN at Amazon (new tab)"
+    },
+
+    "pref_open_isbn_amazon_title": {
+        "message": "Open ISBN at Amazon"
+    },
+    "pref_open_isbn_amazon_description": {
+        "message": "Enable context menu for opening a selected ISBN into Amazon.com (in the same window)"
+    },
+    "pref_open_isbn_amazon_new_tab_title": {
+        "message": "Open ISBN at Amazon (new tab)"
+    },
+    "pref_open_isbn_amazon_new_tab_description": {
+        "message": "Enable context menu for opening a selected ISBN into Amazon.com (in a new tab)"
+    }
+}
