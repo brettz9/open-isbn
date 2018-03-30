@@ -1,10 +1,10 @@
 # open-isbn
 
-A webextensions
+A webextensions add-on
 ([Firefox](https://addons.mozilla.org/en-US/firefox/addon/open-isbn/)
 or
-[Chrome](https://chrome.google.com/webstore/detail/lkhlbkfkgngohcmcgobknikibbpnpkbd/?hl=en-US))
-add-on which lets one highlight text or a link containing an
+[Chrome](https://chrome.google.com/webstore/detail/open-isbn/lkhlbkfkgngohcmcgobknikibbpnpkbd?hl=en-US))
+which lets one highlight text or a link containing an
 [ISBN](https://en.wikipedia.org/wiki/International_Standard_Book_Number)
 and visit the ISBN at [Amazon.com](http://www.amazon.com/).
 
