@@ -7,11 +7,11 @@
   "version": "0.3.0",
   "dependencies": {},
   "devDependencies": {
-    "eslint": "8.4.1",
+    "eslint": "8.5.0",
     "eslint-config-standard": "16.0.3",
     "eslint-plugin-import": "2.25.3",
     "eslint-plugin-node": "11.1.0",
-    "eslint-plugin-promise": "5.2.0",
+    "eslint-plugin-promise": "6.0.0",
     "eslint-plugin-standard": "4.1.0",
     "jamilih": "0.54.0",
     "webextension-polyfill": "^0.8.0"
