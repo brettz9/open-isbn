@@ -1,33 +1,31 @@
 {
-  "manifest_version": 2,
-
+  "manifest_version": 3,
   "name": "__MSG_extensionName__",
   "short_name": "__MSG_extensionShortName__",
   "description": "__MSG_extensionDescription__",
   "author": "Brett Zamir",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "homepage_url": "https://github.com/brettz9/open-isbn/",
-
-  "permissions": ["contextMenus", "storage", "<all_urls>"],
-
+  "permissions": [
+    "contextMenus",
+    "storage",
+    "scripting",
+    "activeTab"
+  ],
   "background": {
-    "scripts": ["polyfills/browser-polyfill.min.js", "lib/background.js"]
+    "type": "module",
+    "service_worker": "lib/background.js"
   },
-
   "options_ui": {
     "page": "options/options.html",
     "browser_style": true,
-    "chrome_style": true,
     "open_in_tab": false
   },
-
   "icons": {
     "128": "icon.png"
   },
-
   "default_locale": "en",
-
-  "applications": {
+  "browser_specific_settings": {
     "gecko": {
       "id": "jid0-AUMeALWAI9Z08xdCmXfcfeySIjk@jetpack"
     }

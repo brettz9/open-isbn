@@ -1,9 +1,11 @@
 /* eslint-env browser, webextensions */
-import jml from './jml.js';
+import {jml, body} from './jml.js';
 
 function _ (...args) {
     return browser.i18n.getMessage(...args);
 }
+
+const port = browser.runtime.connect({name: 'options-port'});
 
 document.title = _('extensionName'); // If switch to tabs
 (async () => {
@@ -25,8 +27,7 @@ jml('section', await Promise.all([
                     await browser.storage.local.set({
                         [preferenceKey]: target.checked
                     });
-                    const backgroundPage = browser.extension.getBackgroundPage();
-                    backgroundPage.updateContextMenus();
+                    port.postMessage({message: 'updateContextMenus'});
                 }
             }
         }],
@@ -37,5 +38,5 @@ jml('section', await Promise.all([
         ]],
         ['br']
     ]];
-})), document.body);
+})), body);
 })();
