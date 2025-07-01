@@ -1,6 +1,9 @@
-/* eslint-env browser, webextensions */
 import {jml, body} from './jml.js';
 
+/**
+ * @param {...any} args
+ * @returns {string}
+ */
 function _ (...args) {
     return browser.i18n.getMessage(...args);
 }
@@ -8,7 +11,7 @@ function _ (...args) {
 const port = browser.runtime.connect({name: 'options-port'});
 
 document.title = _('extensionName'); // If switch to tabs
-(async () => {
+
 jml('section', await Promise.all([
     // Todo: Allow user choice of one or more extra items
     ['pref_open_isbn_amazon'],
@@ -16,7 +19,8 @@ jml('section', await Promise.all([
 ].map(async ([preferenceKey]) => {
     let enabled = true;
     try {
-        ({[preferenceKey]: enabled = true} = await browser.storage.local.get(preferenceKey));
+        ({[preferenceKey]: enabled = true} =
+            await browser.storage.local.get(preferenceKey));
     } catch (err) {}
     return ['label', [
         ['input', {
@@ -27,6 +31,8 @@ jml('section', await Promise.all([
                     await browser.storage.local.set({
                         [preferenceKey]: target.checked
                     });
+                    // eslint-disable-next-line @stylistic/max-len -- Long
+                    // eslint-disable-next-line unicorn/require-post-message-target-origin -- Webextensions
                     port.postMessage({message: 'updateContextMenus'});
                 }
             }
@@ -39,4 +45,3 @@ jml('section', await Promise.all([
         ['br']
     ]];
 })), body);
-})();
