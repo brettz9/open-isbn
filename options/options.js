@@ -1,11 +1,11 @@
 import {jml, body} from './jml.js';
 
 /**
- * @param {...any} args
+ * @param {string} arg
  * @returns {string}
  */
-function _ (...args) {
-    return browser.i18n.getMessage(...args);
+function _ (arg) {
+    return browser.i18n.getMessage(arg);
 }
 
 const port = browser.runtime.connect({name: 'options-port'});
@@ -19,17 +19,20 @@ jml('section', await Promise.all([
 ].map(async ([preferenceKey]) => {
     let enabled = true;
     try {
-        ({[preferenceKey]: enabled = true} =
-            await browser.storage.local.get(preferenceKey));
+        enabled = /** @type {boolean} */ ((
+            await browser.storage.local.get(preferenceKey)
+        )[preferenceKey] ?? true);
     } catch (err) {}
-    return ['label', [
+    return /** @type {import('jamilih').JamilihArray} */ (['label', [
         ['input', {
             type: 'checkbox',
             checked: enabled,
             $on: {
                 async change ({target}) {
                     await browser.storage.local.set({
-                        [preferenceKey]: target.checked
+                        [preferenceKey]: /** @type {HTMLInputElement} */ (
+                            target
+                        ).checked
                     });
                     // eslint-disable-next-line @stylistic/max-len -- Long
                     // eslint-disable-next-line unicorn/require-post-message-target-origin -- Webextensions
@@ -43,5 +46,5 @@ jml('section', await Promise.all([
             _(preferenceKey + '_description')
         ]],
         ['br']
-    ]];
+    ]]);
 })), body);

@@ -7,6 +7,7 @@
   "license": "MIT",
   "version": "0.4.0",
   "devDependencies": {
+    "@types/webextension-polyfill": "^0.12.4",
     "convert-manifest-format": "^0.9.0",
     "eslint": "9.34.0",
     "eslint-config-ash-nazg": "39.0.1",
@@ -17,6 +18,7 @@
   "scripts": {
     "chrome": "convert-manifest-format --chrome && npm run webext-build",
     "firefox": "convert-manifest-format --firefox && npm run webext-build",
+    "tsc": "tsc",
     "webext-path": "npm run eslint && web-ext run --browser-console -f /Applications/Firefox.app",
     "webext": "npm run eslint && web-ext run --browser-console -f firefox",
     "webext-default": "npm run eslint && web-ext run --browser-console",
@@ -26,8 +28,8 @@
     "webext-build": "npm run eslint && web-ext build --overwrite-dest",
     "eslint": "eslint .",
     "lint": "npm run eslint",
-    "copy-jamilih": "cp node_modules/jamilih/dist/jml-es-noinnerh.js options/jml.js",
-    "copy-polyfill": "cp node_modules/webextension-polyfill/dist/browser-polyfill.min.js polyfills/browser-polyfill.min.js",
+    "copy-jamilih": "cp node_modules/jamilih/dist/jml-es-noinnerh.js options/jml.js && cp node_modules/jamilih/dist/jml.d.ts options/jml.d.ts",
+    "copy-polyfill": "cp node_modules/webextension-polyfill/dist/browser-polyfill.min.js polyfills/browser-polyfill.min.js && cp node_modules/@types/webextension-polyfill/index.d.ts polyfills/browser-polyfill.min.d.ts",
     "copy": "npm run copy-jamilih && npm run copy-polyfill"
   },
   "engines": {},
